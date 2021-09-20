@@ -12,7 +12,7 @@ public class Calculator {
             if (priority == 1) stack.push(Expr.charAt(i));
 
             if (priority > 1) {
-                current += ' ';
+                current += ' '; // for splitting numbers on the stack
                 while (!stack.empty()) {
                     if (getP(stack.peek()) >= priority) current += stack.pop();
                     else break;
@@ -29,7 +29,7 @@ public class Calculator {
     }
 
     public static double RPNtoAnswer(String rpn) {
-        String operand = ""; // for splitting numbers on the stack
+        String operand = "";
         Stack<Double> stack = new Stack<>();
         for (int i = 0; i < rpn.length(); i++) {
             if (rpn.charAt(i) == ' ') continue;
